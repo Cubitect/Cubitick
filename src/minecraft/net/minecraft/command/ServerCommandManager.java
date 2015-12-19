@@ -89,8 +89,8 @@ public class ServerCommandManager extends CommandHandler implements IAdminComman
         this.registerCommand(new CommandTitle());
         this.registerCommand(new CommandEntityData());
         
-		// Cubitick       
-		this.registerCommand(new CommandTickrate());
+        // Cubitick       
+        this.registerCommand(new CommandTickrate());
         this.registerCommand(new CommandTickSync());
         
         // PacketAnalysis

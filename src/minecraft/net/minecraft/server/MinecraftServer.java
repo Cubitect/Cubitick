@@ -85,9 +85,9 @@ import org.apache.logging.log4j.Logger;
 
 public abstract class MinecraftServer implements ICommandSender, Runnable, IThreadListener, IPlayerUsage
 {
-	// Cubitick: msToTick = milliseconds until server ticks		
-	public static long msToTick;
-	
+    // Cubitick: msToTick = milliseconds until server ticks     
+    public static long msToTick;
+    
     private static final Logger logger = LogManager.getLogger();
     public static final File USER_CACHE_FILE = new File("usercache.json");
 
@@ -231,13 +231,13 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IThre
     // Cubitick: used in the GuiChat class to interrupt the server's sleep
     public static void interruptTickSleep()
     {
-    	MinecraftServer mcs = getServer();
-    	if(mcs == null) {
-    		logger.warn("[Cubitick] Warning: Tried to interrupt server tick sleep, but server is null.");
-    		return;
-    	}
-    	mcs.currentTime = mcs.getCurrentTimeMillis();
-    	mcs.msToTick = -1;
+        MinecraftServer mcs = getServer();
+        if(mcs == null) {
+            logger.warn("[Cubitick] Warning: Tried to interrupt server tick sleep, but server is null.");
+            return;
+        }
+        mcs.currentTime = mcs.getCurrentTimeMillis();
+        mcs.msToTick = -1;
     }
     
     /**
@@ -553,7 +553,7 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IThre
                     long var48 = getCurrentTimeMillis();
                     long var5 = var48 - this.currentTime;
 
-					// Cubitick: adjusted some timings
+                    // Cubitick: adjusted some timings
                     if (var5 > 100*Cubitick.getTickms() && this.currentTime - this.timeOfLastWarning >= 15000L)
                     {
                         logger.warn("Can\'t keep up! Did the system time change, or is the server overloaded? Running {}ms behind, skipping {} tick(s)", new Object[] {Long.valueOf(var5), Long.valueOf(var5 / 50L)});
@@ -577,7 +577,7 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IThre
                     }
                     else
                     {
-                    	// Cubitick 
+                        // Cubitick 
                         while (var1 > Cubitick.getTickms())
                         {
                             var1 -= Cubitick.getTickms();
@@ -591,32 +591,32 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IThre
                     
                     msToTick = (long)(Cubitick.getTickms() - var1);
                     if(msToTick <= 0L) {
-                    	if(Cubitick.tickrateWorld > 20.0 && !Cubitick.synctick) msToTick = 0L;
-                    	else msToTick = 1L;
+                        if(Cubitick.tickrateWorld > 20.0 && !Cubitick.synctick) msToTick = 0L;
+                        else msToTick = 1L;
                     }
                     for(long i = 0; i < msToTick; i++) {
-                    	Thread.sleep(1L);
-                    	if(!Cubitick.synctick) {	
-                    	}
+                        Thread.sleep(1L);
+                        if(!Cubitick.synctick) {    
+                        }
                     }
                     
                     // Cubitick: process the chat (for low tickrates where we can't wait for the tick to finish)
                     if(!Cubitick.synctick && msToTick < 0)
                     {
-	                    synchronized (this.futureTaskQueue)
-	                    {
-	                        while (!this.futureTaskQueue.isEmpty())
-	                        {
-	                            try
-	                            {
-	                                ((FutureTask)this.futureTaskQueue.poll()).run();
-	                            }
-	                            catch (Throwable var9)
-	                            {
-	                                logger.fatal(var9);
-	                            }
-	                        }
-	                    }
+                        synchronized (this.futureTaskQueue)
+                        {
+                            while (!this.futureTaskQueue.isEmpty())
+                            {
+                                try
+                                {
+                                    ((FutureTask)this.futureTaskQueue.poll()).run();
+                                }
+                                catch (Throwable var9)
+                                {
+                                    logger.fatal(var9);
+                                }
+                            }
+                        }
                     }
                     
                     this.serverIsRunning = true;

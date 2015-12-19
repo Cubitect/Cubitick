@@ -1288,9 +1288,9 @@ public class EntityRenderer implements IResourceManagerReloadListener
 
         // Cubitick
         if(mc.timer.renderPartialTicks < 0 || mc.timer.renderPartialTicks >= 1) 
-        	mc.timer.renderPartialTicks = 0;
+            mc.timer.renderPartialTicks = 0;
         if(mc.timerWorld.renderPartialTicks < 0 || mc.timerWorld.renderPartialTicks >= 1) 
-        	mc.timerWorld.renderPartialTicks = 0;
+            mc.timerWorld.renderPartialTicks = 0;
         
         if (this.mc.gameSettings.anaglyph)
         {
@@ -1516,7 +1516,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
         double var14 = var9.lastTickPosZ + (var9.posZ - var9.lastTickPosZ) * (double)ptick;
         var8.setPosition(var10, var12, var14);
         
-		// Cubitick: save lastTickPos of the player so that it can be temporarily altered later on
+        // Cubitick: save lastTickPos of the player so that it can be temporarily altered later on
         double lx = var9.lastTickPosX;
         double ly = var9.lastTickPosY;
         double lz = var9.lastTickPosZ;
@@ -1579,7 +1579,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
             RenderHelper.enableStandardItemLighting();
             this.mc.mcProfiler.endStartSection("entities");
             
-			// Cubitick
+            // Cubitick
             var9.lastTickPosX = var9.posX - (var9.posX-lx)*(1.0-ptick)/(1.0-wtick);
             var9.lastTickPosY = var9.posY - (var9.posY-ly)*(1.0-ptick)/(1.0-wtick);
             var9.lastTickPosZ = var9.posZ - (var9.posZ-lz)*(1.0-ptick)/(1.0-wtick);

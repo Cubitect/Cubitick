@@ -28,20 +28,20 @@ public class CommandRerender extends CommandBase
 
     public void processCommand(ICommandSender sender, String[] args) throws CommandException
     {
-    	if(args.length == 0) {
-    		Minecraft.getMinecraft().scheduledReload = true;
-    	}
-    	else if(args.length <= 5) {
-    		notifyOperators(sender, this, "§cUsage:\n§c"+getCommandUsage(sender));
-    		return;
-    	} else {
+        if(args.length == 0) {
+            Minecraft.getMinecraft().scheduledReload = true;
+        }
+        else if(args.length <= 5) {
+            notifyOperators(sender, this, "§cUsage:\n§c"+getCommandUsage(sender));
+            return;
+        } else {
             BlockPos pos1 = func_175757_a(sender, args, 0, false);
             BlockPos pos2 = func_175757_a(sender, args, 3, false); 
 
             BlockPos from = new BlockPos(Math.min(pos1.getX(), pos2.getX()), Math.min(pos1.getY(), pos2.getY()), Math.min(pos1.getZ(), pos2.getZ()));
             BlockPos to   = new BlockPos(Math.max(pos1.getX(), pos2.getX()), Math.max(pos1.getY(), pos2.getY()), Math.max(pos1.getZ(), pos2.getZ()));
-    		sender.getEntityWorld().markBlockRangeForRenderUpdate(from, to);
-    	}
+            sender.getEntityWorld().markBlockRangeForRenderUpdate(from, to);
+        }
     }
 
     public List addTabCompletionOptions(ICommandSender sender, String[] args, BlockPos pos)

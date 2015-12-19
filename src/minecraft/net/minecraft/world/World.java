@@ -1617,10 +1617,10 @@ public abstract class World implements IBlockAccess
     // Cubitect: redirect to custom method 
     public void updateEntities()
     {
-    	this.updateEntities(null);
+        this.updateEntities(null);
     }
     
-	// Cubitick: toSkip will be the player, so that the player can be updated separately in its own tick
+    // Cubitick: toSkip will be the player, so that the player can be updated separately in its own tick
     public void updateEntities(Entity toSkip)
     {
         this.theProfiler.startSection("entities");
@@ -1708,8 +1708,8 @@ public abstract class World implements IBlockAccess
             {
                 try
                 {
-                	// Cubitick: added skip condition
-                	if(var2 != toSkip) this.updateEntity(var2);
+                    // Cubitick: added skip condition
+                    if(var2 != toSkip) this.updateEntity(var2);
                 }
                 catch (Throwable var8)
                 {

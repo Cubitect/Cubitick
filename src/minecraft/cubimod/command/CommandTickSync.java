@@ -37,20 +37,20 @@ public class CommandTickSync extends CommandBase
 
     public void processCommand(ICommandSender sender, String[] args) throws CommandException
     {
-    	if(args.length < 1) {
-    		notifyOperators(sender, this, (Cubitick.synctick) ? "Tickrate is currently synchronised" : "Tickrate is currently desynchronised");
-    		return;
-    	} else {
-    		if(args[0].equals("true") || args[0].equals("on")) {
-    			Cubitick.synctick = true;
-    			notifyOperators(sender, this, "Tickrate is now synchronised");
-    		} else if(args[0].equals("false") || args[0].equals("off")) {
-    			Cubitick.synctick = false;
-    			notifyOperators(sender, this, "Tickrate is now desynchronised");
-    		} else {
-    			notifyOperators(sender, this, "Tickrate synchronisation can only be true/on or false/off");
-    		}
-    	}
+        if(args.length < 1) {
+            notifyOperators(sender, this, (Cubitick.synctick) ? "Tickrate is currently synchronised" : "Tickrate is currently desynchronised");
+            return;
+        } else {
+            if(args[0].equals("true") || args[0].equals("on")) {
+                Cubitick.synctick = true;
+                notifyOperators(sender, this, "Tickrate is now synchronised");
+            } else if(args[0].equals("false") || args[0].equals("off")) {
+                Cubitick.synctick = false;
+                notifyOperators(sender, this, "Tickrate is now desynchronised");
+            } else {
+                notifyOperators(sender, this, "Tickrate synchronisation can only be true/on or false/off");
+            }
+        }
     }
 
     public List addTabCompletionOptions(ICommandSender sender, String[] args, BlockPos pos)

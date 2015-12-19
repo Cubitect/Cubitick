@@ -36,19 +36,19 @@ public class CommandTickrate extends CommandBase
 
     public void processCommand(ICommandSender sender, String[] args) throws CommandException
     {
-    	if(args.length < 1) {
-    		notifyOperators(sender, this, "Tickrate is " + Cubitick.tickrateWorld + " ticks per second");
-    		return;
-    	} else {
-    		float tickspeed = (float)parseDouble(args[0], 0);
-    		if(tickspeed >= 0) {
-    			Cubitick.setTickWorld(tickspeed);
-    			notifyOperators(sender, this, "Tickrate set to " + tickspeed);
-    		} else {
-    			notifyOperators(sender, this, "Tickrate should be a non-negative floating point number");
-    			return;
-    		}
-    	}
+        if(args.length < 1) {
+            notifyOperators(sender, this, "Tickrate is " + Cubitick.tickrateWorld + " ticks per second");
+            return;
+        } else {
+            float tickspeed = (float)parseDouble(args[0], 0);
+            if(tickspeed >= 0) {
+                Cubitick.setTickWorld(tickspeed);
+                notifyOperators(sender, this, "Tickrate set to " + tickspeed);
+            } else {
+                notifyOperators(sender, this, "Tickrate should be a non-negative floating point number");
+                return;
+            }
+        }
     }
 
     public List addTabCompletionOptions(ICommandSender sender, String[] args, BlockPos pos)

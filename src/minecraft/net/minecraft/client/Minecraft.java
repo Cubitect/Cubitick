@@ -220,8 +220,8 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     public int displayWidth;
     public int displayHeight;
     
-	// Cubitick: make timer public
-	public Timer timerWorld = new Timer(Cubitick.tickrateWorld);
+    // Cubitick: make timer public
+    public Timer timerWorld = new Timer(Cubitick.tickrateWorld);
     public Timer timer = new Timer(Cubitick.tickrate);
     public long tickcounter = 0;
     // PacketAnalysis
@@ -1088,8 +1088,8 @@ public class Minecraft implements IThreadListener, IPlayerUsage
             this.timer.updateTimer();
             this.timer.renderPartialTicks = var1;
             
-			// Cubitick
-			float rptw = this.timerWorld.renderPartialTicks;
+            // Cubitick
+            float rptw = this.timerWorld.renderPartialTicks;
             this.timerWorld.updateTimer();
             this.timerWorld.renderPartialTicks = rptw;
         }
@@ -1112,11 +1112,11 @@ public class Minecraft implements IThreadListener, IPlayerUsage
             }
         }
         
-		// Cubitick : reset tickrates upon loading a new world
+        // Cubitick : reset tickrates upon loading a new world
         if(this.theWorld == null && Cubitick.tickrateWorld != Cubitick.tickrate)
         {
-        	Cubitick.setTickWorld(Cubitick.tickrate);
-        	Cubitick.synctick = false;
+            Cubitick.setTickWorld(Cubitick.tickrate);
+            Cubitick.synctick = false;
         }
 
         this.mcProfiler.endSection();
@@ -1126,30 +1126,30 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         // Cubitick
         if(Cubitick.synctick)
         {
-        	// original runTick() call (with added tickcounter increment)
+            // original runTick() call (with added tickcounter increment)
             for (int var3 = 0; var3 < this.timerWorld.elapsedTicks; ++var3)
             {
-            	if(!this.isGamePaused) this.tickcounter++;
+                if(!this.isGamePaused) this.tickcounter++;
                 this.runTick();
             }
         }
         else 
         {
-	        int worldTicks = this.timerWorld.elapsedTicks;
-	        int playerTicks = this.timer.elapsedTicks;
-	        
-	        while(playerTicks > 0)
-	        {
-	        	this.runTickPlayer();
-	        	playerTicks--;
-	        }
-	        
-	        while(worldTicks > 0)
-	        {
-	        	if(!this.isGamePaused) this.tickcounter++;
-	        	this.runTickWorld();
-	        	worldTicks--;
-	        }
+            int worldTicks = this.timerWorld.elapsedTicks;
+            int playerTicks = this.timer.elapsedTicks;
+            
+            while(playerTicks > 0)
+            {
+                this.runTickPlayer();
+                playerTicks--;
+            }
+            
+            while(worldTicks > 0)
+            {
+                if(!this.isGamePaused) this.tickcounter++;
+                this.runTickWorld();
+                worldTicks--;
+            }
         }
 
         this.mcProfiler.endStartSection("preRenderErrors");
@@ -1759,7 +1759,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
      * Runs the current tick.
      */
     
-	// Cubitick : split runTick() into runTickPlayer() and runTickWorld()
+    // Cubitick : split runTick() into runTickPlayer() and runTickWorld()
     public void runTickPlayer() throws IOException
     {
         if (this.rightClickDelayTimer > 0)
@@ -2205,9 +2205,9 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         
         if(this.theWorld != null)
         {
-        	// Cubitick
-        	if(!this.isGamePaused) this.theWorld.updateEntity(thePlayer);
-        	
+            // Cubitick
+            if(!this.isGamePaused) this.theWorld.updateEntity(thePlayer);
+            
             if (this.thePlayer != null)
             {
                 ++this.joinPlayerCounter;
@@ -2231,8 +2231,8 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         
         // PacketAnalysis: rerender
         if(scheduledReload){
-        	this.renderGlobal.loadRenderers();
-        	scheduledReload = false;
+            this.renderGlobal.loadRenderers();
+            scheduledReload = false;
         }
     }
     
@@ -2240,7 +2240,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     {
         CrashReport var2;
         CrashReportCategory var3;
-    	
+        
         if (this.theWorld != null)
         {
             if (this.thePlayer != null)
@@ -2886,8 +2886,8 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         
         // PacketAnalysis
         if(scheduledReload){
-        	this.renderGlobal.loadRenderers();
-        	scheduledReload = false;
+            this.renderGlobal.loadRenderers();
+            scheduledReload = false;
         }
     }
 

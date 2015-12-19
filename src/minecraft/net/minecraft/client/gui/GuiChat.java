@@ -140,7 +140,7 @@ public class GuiChat extends GuiScreen
                 // Cubitick: interrupt the server's sleep so it can process the chat
                 if(!Cubitick.synctick)
                 {
-                	MinecraftServer.interruptTickSleep();
+                    MinecraftServer.interruptTickSleep();
                 }
             }
 

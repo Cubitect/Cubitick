@@ -752,20 +752,20 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         
         // PacketAnalysis
         if(PacketAnalysis.packetS[0x22] && MinecraftServer.getServer() != null) 
-        	PacketAnalysis.playerChat("§eTick " + MinecraftServer.getServer().getTickCounter() + " S22PacketMultiBlockChange");
+            PacketAnalysis.playerChat("§eTick " + MinecraftServer.getServer().getTickCounter() + " S22PacketMultiBlockChange");
 
         for (int var4 = 0; var4 < var3; ++var4)
         {
             S22PacketMultiBlockChange.BlockUpdateData var5 = var2[var4];
             
             // PacketAnalysis
-			if(PacketAnalysis.packetS[0x22]) {
-	            BlockPos pos = var5.func_180090_a();
-				IBlockState ibs = var5.func_180088_c();
-				
-				String ibsstr = "§c" + (ibs + "").substring(10).replace("[", "§7[");
-				PacketAnalysis.playerChat("  §f@(" + pos.getX() + "," + pos.getY() + "," + pos.getZ() + "): " + ibsstr);
-			}
+            if(PacketAnalysis.packetS[0x22]) {
+                BlockPos pos = var5.func_180090_a();
+                IBlockState ibs = var5.func_180088_c();
+                
+                String ibsstr = "§c" + (ibs + "").substring(10).replace("[", "§7[");
+                PacketAnalysis.playerChat("  §f@(" + pos.getX() + "," + pos.getY() + "," + pos.getZ() + "): " + ibsstr);
+            }
             
             this.clientWorldController.func_180503_b(var5.func_180090_a(), var5.func_180088_c());
         }
@@ -781,20 +781,20 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         // PacketAnalysis
         if(PacketAnalysis.packetS[0x21] && MinecraftServer.getServer() != null)
         {
-        	int xChunk = packetIn.func_149273_e(), yChunk = packetIn.func_149271_f();
-        	int gbits = packetIn.func_149276_g();
-        	boolean dealWithLoading = packetIn.func_149274_i();
-        	
-        	PacketAnalysis.playerChat("§eTick " + MinecraftServer.getServer().getTickCounter() + 
-        			" S21PacketChunkData, §fChunk: (" + xChunk + "," + yChunk + ")");
-        	if(gbits != 0) {
-        		String gstr = String.format("%16s", Integer.toBinaryString(gbits)).replace(' ', '0');
-        		PacketAnalysis.playerChat("  DoLoading: " + (dealWithLoading ? "§atrue§f (§bLoad chunk§f)" : "§cfalse"));
-        		PacketAnalysis.playerChat("  Subchunk bitfield: " + gstr.replace("1", "§a1§f"));
-        	}
-        	else { 
-        		PacketAnalysis.playerChat("  DoLoading: " + (dealWithLoading ? "§atrue§f (§3Unload chunk§f)" : "§cfalse"));
-        	}
+            int xChunk = packetIn.func_149273_e(), yChunk = packetIn.func_149271_f();
+            int gbits = packetIn.func_149276_g();
+            boolean dealWithLoading = packetIn.func_149274_i();
+            
+            PacketAnalysis.playerChat("§eTick " + MinecraftServer.getServer().getTickCounter() + 
+                    " S21PacketChunkData, §fChunk: (" + xChunk + "," + yChunk + ")");
+            if(gbits != 0) {
+                String gstr = String.format("%16s", Integer.toBinaryString(gbits)).replace(' ', '0');
+                PacketAnalysis.playerChat("  DoLoading: " + (dealWithLoading ? "§atrue§f (§bLoad chunk§f)" : "§cfalse"));
+                PacketAnalysis.playerChat("  Subchunk bitfield: " + gstr.replace("1", "§a1§f"));
+            }
+            else { 
+                PacketAnalysis.playerChat("  DoLoading: " + (dealWithLoading ? "§atrue§f (§3Unload chunk§f)" : "§cfalse"));
+            }
         }
         
         if (packetIn.func_149274_i())
@@ -829,11 +829,11 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         // PacketAnalysis
         if(PacketAnalysis.packetS[0x23]  && MinecraftServer.getServer() != null) {
             BlockPos pos = packetIn.func_179827_b();
-			IBlockState ibs = packetIn.func_180728_a();
-			
-			PacketAnalysis.playerChat("§eTick " + MinecraftServer.getServer().getTickCounter() + " S23PacketBlockChange");
-			String ibsstr = "§c" + (ibs + "").substring(10).replace("[", "§7[");
-			PacketAnalysis.playerChat("  §f@(" + pos.getX() + "," + pos.getY() + "," + pos.getZ() + "): " + ibsstr);
+            IBlockState ibs = packetIn.func_180728_a();
+            
+            PacketAnalysis.playerChat("§eTick " + MinecraftServer.getServer().getTickCounter() + " S23PacketBlockChange");
+            String ibsstr = "§c" + (ibs + "").substring(10).replace("[", "§7[");
+            PacketAnalysis.playerChat("  §f@(" + pos.getX() + "," + pos.getY() + "," + pos.getZ() + "): " + ibsstr);
         }
         
         this.clientWorldController.func_180503_b(packetIn.func_179827_b(), packetIn.func_180728_a());
@@ -1004,9 +1004,9 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         
         // PacketAnalysis
         if(PacketAnalysis.packetS[0x0F]  && MinecraftServer.getServer() != null) {
-        	String entityName = var10.getName();
-        	int entityID = packetIn.func_149024_d();
-        	double xPos = (double)packetIn.func_149023_f() / 32.0D;
+            String entityName = var10.getName();
+            int entityID = packetIn.func_149024_d();
+            double xPos = (double)packetIn.func_149023_f() / 32.0D;
             double yPos = (double)packetIn.func_149034_g() / 32.0D;
             double zPos = (double)packetIn.func_149029_h() / 32.0D;
             float yaw   = (float)(packetIn.func_149028_l() * 360) / 256.0F;
@@ -1017,7 +1017,7 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
             
             PacketAnalysis.playerChat("§eTick " + MinecraftServer.getServer().getTickCounter() + " S0FPacketSpawnMob");
             PacketAnalysis.playerChat("  §c"+entityName+" §f@("+xPos+","+yPos+","+zPos+") §7["+
-        			"Yaw:"+yaw+",Pitch:"+pitch+",Motion:("+motionX+","+motionY+","+motionZ+"),Id:"+entityID+"]");
+                    "Yaw:"+yaw+",Pitch:"+pitch+",Motion:("+motionX+","+motionY+","+motionZ+"),Id:"+entityID+"]");
         }
         
         List var14 = packetIn.func_149027_c();
@@ -1034,11 +1034,11 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         
         // PacketAnalysis
         if(PacketAnalysis.packetS[0x03]  && MinecraftServer.getServer() != null) {
-           	long totalWorldTime = packetIn.func_149366_c();
-        	long igt = packetIn.func_149365_d();
-        	
-        	PacketAnalysis.playerChat("§eTick " + MinecraftServer.getServer().getTickCounter() + " S03PacketTimeUpdate");
-        	PacketAnalysis.playerChat("  TotalWorldTime:" + totalWorldTime + " InGameTime:" + igt);
+            long totalWorldTime = packetIn.func_149366_c();
+            long igt = packetIn.func_149365_d();
+            
+            PacketAnalysis.playerChat("§eTick " + MinecraftServer.getServer().getTickCounter() + " S03PacketTimeUpdate");
+            PacketAnalysis.playerChat("  TotalWorldTime:" + totalWorldTime + " InGameTime:" + igt);
         }
         
         this.gameController.theWorld.func_82738_a(packetIn.func_149366_c());
@@ -1134,12 +1134,12 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         
         // PacketAnalysis
         if(PacketAnalysis.packetS[0x06]  && MinecraftServer.getServer() != null) {
-        	float health = packetIn.getHealth();
-        	int food = packetIn.getFoodLevel();
-        	float saturation = packetIn.getSaturationLevel();
-        	
-        	PacketAnalysis.playerChat("§eTick " + MinecraftServer.getServer().getTickCounter() + " S06PacketUpdateHealth");
-        	PacketAnalysis.playerChat("  Health:" + health + " Food:" + food + " Saturation:" + saturation);
+            float health = packetIn.getHealth();
+            int food = packetIn.getFoodLevel();
+            float saturation = packetIn.getSaturationLevel();
+            
+            PacketAnalysis.playerChat("§eTick " + MinecraftServer.getServer().getTickCounter() + " S06PacketUpdateHealth");
+            PacketAnalysis.playerChat("  Health:" + health + " Food:" + food + " Saturation:" + saturation);
         }
         
         this.gameController.thePlayer.setPlayerSPHealth(packetIn.getHealth());
@@ -1426,13 +1426,13 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         // PacketAnalysis
         if(PacketAnalysis.packetS[0x24]  && MinecraftServer.getServer() != null) {
             BlockPos pos = packetIn.func_179825_a();
-			Block block = packetIn.getBlockType();
-			int eventID = packetIn.getData1();
-			int eventParam = packetIn.getData2();
-			
-			PacketAnalysis.playerChat("§eTick " + MinecraftServer.getServer().getTickCounter() + " S24PacketBlockAction");
-			String ibsstr = "§c" + I18n.format(block.getUnlocalizedName() + ".name") + " §7[EventID:" + eventID + ",EventParam:" + eventParam + "]";
-			PacketAnalysis.playerChat("  §f@(" + pos.getX() + "," + pos.getY() + "," + pos.getZ() + "): " + ibsstr);
+            Block block = packetIn.getBlockType();
+            int eventID = packetIn.getData1();
+            int eventParam = packetIn.getData2();
+            
+            PacketAnalysis.playerChat("§eTick " + MinecraftServer.getServer().getTickCounter() + " S24PacketBlockAction");
+            String ibsstr = "§c" + I18n.format(block.getUnlocalizedName() + ".name") + " §7[EventID:" + eventID + ",EventParam:" + eventParam + "]";
+            PacketAnalysis.playerChat("  §f@(" + pos.getX() + "," + pos.getY() + "," + pos.getZ() + "): " + ibsstr);
         }
         
         this.gameController.theWorld.addBlockEvent(packetIn.func_179825_a(), packetIn.getBlockType(), packetIn.getData1(), packetIn.getData2());
@@ -1453,7 +1453,7 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
 
         // PacketAnalysis
         if(PacketAnalysis.packetS[0x26] && MinecraftServer.getServer() != null) 
-        	PacketAnalysis.playerChat("§eTick " + MinecraftServer.getServer().getTickCounter() + " S26PacketMapChunkBulk");
+            PacketAnalysis.playerChat("§eTick " + MinecraftServer.getServer().getTickCounter() + " S26PacketMapChunkBulk");
         
         for (int var2 = 0; var2 < packetIn.func_149254_d(); ++var2)
         {
@@ -1462,8 +1462,8 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
             
             // PacketAnalysis
             if(PacketAnalysis.packetS[0x26] && MinecraftServer.getServer() != null) {
-            	String binstr = String.format("%16s", Integer.toBinaryString(packetIn.func_179754_d(var2))).replace(' ', '0');
-            	PacketAnalysis.playerChat("  §3Load chunk§f: (" + var3 + "," + var4 + ") §7[Subchunk bitfield: " + binstr + "]");
+                String binstr = String.format("%16s", Integer.toBinaryString(packetIn.func_179754_d(var2))).replace(' ', '0');
+                PacketAnalysis.playerChat("  §3Load chunk§f: (" + var3 + "," + var4 + ") §7[Subchunk bitfield: " + binstr + "]");
             }
             
             this.clientWorldController.doPreChunk(var3, var4, true);
