@@ -1,7 +1,7 @@
-### Cubitick
+# Cubitick
 The Cubitick minecraft mod is an analysis tool for the technical minecraft community. It allows you to change the tickrate of the game, while still allowing you to move and interact with the world at a normal speed.
 
-# Commands
+### Commands
 
 `/tickrate [rate]`
 Sets the tickrate of the world to `rate`.
@@ -9,7 +9,7 @@ Sets the tickrate of the world to `rate`.
 `/ticksync [on/off]`
 Controls if the player-tickrate should be independent of the world-tickrate. It is off (or false) by default. Enabling ticksync will use more vanilla code where possible (which might influence test results). Don't enable this at a world-tickrate of zero, or your game will freeze!
 
-# Packet Analysis
+### Packet Analysis
 Cubitick 1.4.X comes bundled with a packet analysis tool which lets you view the content of some packets that are sent between the minecraft client and server.
 
 `/showpacket [PACKET_TYPE] [true/false]`
