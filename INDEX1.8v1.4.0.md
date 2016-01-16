@@ -31,9 +31,9 @@
 
 ## PacketAnalysis
 
-- [Minecraft.java:227](https://github.com/Cubitect/Cubitick/tree/master/src/minecraft/net/minecraft/server/MinecraftServer.java#L227)
-- [Minecraft.java:2232](https://github.com/Cubitect/Cubitick/tree/master/src/minecraft/net/minecraft/server/MinecraftServer.java#L2232)
-- [Minecraft.java:2887](https://github.com/Cubitect/Cubitick/tree/master/src/minecraft/net/minecraft/server/MinecraftServer.java#L2887)
+- [Minecraft.java:227](https://github.com/Cubitect/Cubitick/tree/master/src/minecraft/net/minecraft/server/Minecraft.java#L227)
+- [Minecraft.java:2232](https://github.com/Cubitect/Cubitick/tree/master/src/minecraft/net/minecraft/server/Minecraft.java#L2232)
+- [Minecraft.java:2887](https://github.com/Cubitect/Cubitick/tree/master/src/minecraft/net/minecraft/server/Minecraft.java#L2887)
 
 - [NetHandlerPlayClient.java:753](https://github.com/Cubitect/Cubitick/tree/master/src/minecraft/net/minecraft/client/network/NetHandlerPlayClient.java#L753)
 - [NetHandlerPlayClient.java:761](https://github.com/Cubitect/Cubitick/tree/master/src/minecraft/net/minecraft/client/network/NetHandlerPlayClient.java#L761)
