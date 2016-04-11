@@ -17,5 +17,5 @@ When no arguments are specified, `/rerender` will do the same as pressing F3+A. 
 Cubitick 1.4.X+ comes bundled with a packet analysis tool which lets you view the content of some packets that are sent between the minecraft client and server.
 
 ## Source
-The source code [here](https://github.com/Cubitect/Cubitick/tree/Cubitick-1.8) contains the modified classes in the decompiled minecraft code from [Mod Coder Pack](http://www.modcoderpack.com). The unmodified classes are not included.
+The source code [here](https://github.com/Cubitect/Cubitick/tree/master) contains the modified classes in the decompiled minecraft code from [Mod Coder Pack](http://www.modcoderpack.com). The unmodified classes are not included.
 
