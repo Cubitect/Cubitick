@@ -35,7 +35,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumChatFormatting;
 import cubimod.command.CommandRerender;
-import cubimod.command.CommandShowPacket;
 import cubimod.command.CommandTickSync;
 import cubimod.command.CommandTickrate;
 
@@ -92,9 +91,6 @@ public class ServerCommandManager extends CommandHandler implements IAdminComman
         // Cubitick       
         this.registerCommand(new CommandTickrate());
         this.registerCommand(new CommandTickSync());
-        
-        // PacketAnalysis
-        this.registerCommand(new CommandShowPacket());
         this.registerCommand(new CommandRerender());
 
         if (MinecraftServer.getServer().isDedicatedServer())

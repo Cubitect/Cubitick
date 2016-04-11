@@ -1175,6 +1175,8 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         if (!this.skipRenderWorld)
         {
             this.mcProfiler.endStartSection("gameRenderer");
+
+            // Cubitick: use the world timer (only relevant for ticksync)
             this.entityRenderer.updateCameraAndRender(this.timerWorld.renderPartialTicks);
             this.mcProfiler.endSection();
         }
