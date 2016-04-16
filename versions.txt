@@ -1,3 +1,4 @@
+main 1.9.2 release  [1.9.2]v1.5.1
 main 1.8   release  [1.8]v1.5.1
 main 1.8   release  [1.8]v1.5.0
 main 1.9   snapshot [16w02a]v1.4.1
