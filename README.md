@@ -19,3 +19,5 @@ Cubitick 1.4.X+ comes bundled with a packet analysis tool which lets you view th
 ## Source
 The source code [here](https://github.com/Cubitect/Cubitick/tree/master) contains the modified classes in the decompiled minecraft code from [Mod Coder Pack](http://www.modcoderpack.com). The unmodified classes are not included.
 
+Some versions of this mod are written by modifying minecraft's obfuscated code (for minecraft versions were MCP is unavailable). For those version I used the [CFR java decompiler](http://www.benf.org/other/cfr/) to get the source code. However, it turns out that it is not possible to modify the MinecraftServer class this way, as only classes in the default directory are accessible this way. To work around this issue I used [Krakatau Bytecode Tools](https://github.com/Storyyeller/Krakatau) to move the MinecraftServer class into the default directory.
+
