@@ -476,7 +476,7 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
             double velX = (double)packetIn.func_149010_g() / 8000.0D;
             double velY = (double)packetIn.func_149004_h() / 8000.0D;
             double velZ = (double)packetIn.func_148999_i() / 8000.0D;
-            ServerPacketData.displayS0E(packetIn.func_149001_c(), null, packetIn.func_148993_l(), var2, var4, var6, rotationYaw, rotationPitch, packetIn.func_149009_m(), velX, velY, velZ);
+            ServerPacketData.displayS0E(packetIn.func_149001_c(), packetIn.func_148993_l(), var2, var4, var6, rotationYaw, rotationPitch, packetIn.func_149009_m(), velX, velY, velZ);
         }
     }
 
@@ -548,7 +548,7 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         
         // PacketAnalysis
         if(ServerPacketData.enabled)
-        ServerPacketData.displayS10(packetIn.func_148965_c(), null, packetIn.func_148961_h(), packetIn.func_179837_b(), packetIn.func_179836_c().getName());
+        ServerPacketData.displayS10(packetIn.func_148965_c(), packetIn.func_148961_h(), packetIn.func_179837_b(), packetIn.func_179836_c().getName());
     }
 
     /**
@@ -629,7 +629,7 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         
         // PacketAnalysis
         if(ServerPacketData.enabled)
-        ServerPacketData.displayS0C(packetIn.func_148943_d(), packetIn.func_179819_c(), var2, var4, var6, var8, var9, packetIn.func_148947_k());
+        ServerPacketData.displayS0C(packetIn.func_148943_d(), packetIn.func_179819_c(), var2, var4, var6, var8, var9, packetIn.func_148947_k(), packetIn.func_148944_c());
     }
 
     /**
@@ -857,7 +857,7 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         if(ServerPacketData.enabled)
         ServerPacketData.displayS08(
                 var3, var5, var7, var9, var10,
-                packetIn.func_179834_f().toString(), null
+                packetIn.func_179834_f().toString()
                 );
     }
 
@@ -881,7 +881,6 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         // PacketAnalysis
         if(ServerPacketData.enabled)
         ServerPacketData.displayS22(var2);
-        
     }
 
     /**
@@ -1132,8 +1131,8 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
             float headRot = (float)(packetIn.func_149032_n() * 360) / 256.0F;
             
             ServerPacketData.displayS0F(
-                    packetIn.func_149024_d(), null, packetIn.func_149025_e(),
-                    var2, var4, var6, var8, var9, headRot, velX, velY, velZ, null);
+                    packetIn.func_149024_d(), packetIn.func_149025_e(),
+                    var2, var4, var6, var8, var9, headRot, velX, velY, velZ, var14);
         }
     }
 
@@ -1212,7 +1211,7 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         
         // PacketAnalysis
         if(ServerPacketData.enabled)
-        ServerPacketData.displayS1B(packetIn.func_149403_d(), packetIn.func_149402_e());
+        ServerPacketData.displayS1B(packetIn.func_149403_d(), packetIn.func_149402_e(), packetIn.func_149404_c());
     }
 
     /**
@@ -1873,22 +1872,22 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         if(ServerPacketData.enabled)
         ServerPacketData.displayS42(
                 packetIn.field_179776_a.name(), // event
+                packetIn.field_179772_d, // duration
                 packetIn.field_179775_c, // entityID
                 packetIn.field_179774_b, // playerID
-                packetIn.field_179773_e, // message
-                packetIn.field_179772_d  // duration
+                packetIn.field_179773_e  // message
                 );
     }
 
-    public void func_175101_a(S41PacketServerDifficulty p_175101_1_)
+    public void func_175101_a(S41PacketServerDifficulty packetIn)
     {
-        PacketThreadUtil.func_180031_a(p_175101_1_, this, this.gameController);
-        this.gameController.theWorld.getWorldInfo().setDifficulty(p_175101_1_.func_179831_b());
-        this.gameController.theWorld.getWorldInfo().setDifficultyLocked(p_175101_1_.func_179830_a());
+        PacketThreadUtil.func_180031_a(packetIn, this, this.gameController);
+        this.gameController.theWorld.getWorldInfo().setDifficulty(packetIn.func_179831_b());
+        this.gameController.theWorld.getWorldInfo().setDifficultyLocked(packetIn.func_179830_a());
    
         // PacketAnalysis
         if(ServerPacketData.enabled)
-        ServerPacketData.displayS41(p_175101_1_.func_179831_b().ordinal(), p_175101_1_.func_179830_a());
+        ServerPacketData.displayS41(packetIn.func_179831_b().ordinal(), packetIn.func_179830_a());
     }
 
     public void func_175094_a(S43PacketCamera packetIn)

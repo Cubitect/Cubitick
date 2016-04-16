@@ -17,7 +17,7 @@ public class Cubitick
     
     private String author = "Cubitect";
     private String name = "Cubitick";
-    private String versionName = "[1.8]v1.5.0";
+    private String versionName = "[1.8]v1.5.1";
     private String versionType = "main";
     private String mcVersion   = "1.8";
     private String mcType      = "release";

@@ -41,80 +41,80 @@ public class ServerPacketData
     
     public static final String[] packetName = 
     {
-        "S00PacketKeepAlive",
-        "S01PacketJoinGame",
-        "S02PacketChat",
-        "S03PacketTimeUpdate",
-        "S04PacketEntityEquipment",
-        "S05PacketSpawnPosition",
-        "S06PacketUpdateHealth",
-        "S07PacketRespawn",
-        "S08PacketPlayerPosLook",
-        "S09PacketHeldItemChange",
-        "S0APacketUseBed",
-        "S0BPacketAnimation",
-        "S0CPacketSpawnPlayer",
-        "S0DPacketCollectItem",
-        "S0EPacketSpawnObject",
-        "S0FPacketSpawnMob",
-        "S10PacketSpawnPainting",
-        "S11PacketSpawnExperienceOrb",
-        "S12PacketEntityVelocity",
-        "S13PacketDestroyEntities",
-        "S14PacketEntity",
-        "S14PacketEntity$S15RelMove",
-        "S14PacketEntity$S16Look",
-        "S14PacketEntity$S17LookMove",
-        "S18PacketEntityTeleport",
-        "S19PacketEntityHeadLook",
-        "S19PacketEntityStatus",
-        "S1BPacketEntityAttach",
-        "S1CPacketEntityMetadata",
-        "S1DPacketEntityEffect",
-        "S1EPacketRemoveEntityEffect",
-        "S1FPacketSetExperience",
-        "S20PacketEntityProperties",
-        "S21PacketChunkData",
-        "S22PacketMultiBlockChange",
-        "S23PacketBlockChange",
-        "S24PacketBlockAction",
-        "S25PacketBlockBreakAnim",
-        "S26PacketMapChunkBulk",
-        "S27PacketExplosion",
-        "S28PacketEffect",
-        "S29PacketSoundEffect",
-        "S2APacketParticles",
-        "S2BPacketChangeGameState",
-        "S2CPacketSpawnGlobalEntity",
-        "S2DPacketOpenWindow",
-        "S2EPacketCloseWindow",
-        "S2FPacketSetSlot",
-        "S30PacketWindowItems",
-        "S31PacketWindowProperty",
-        "S32PacketConfirmTransaction",
-        "S33PacketUpdateSign",
-        "S34PacketMaps",
-        "S35PacketUpdateTileEntity",
-        "S36PacketSignEditorOpen",
-        "S37PacketStatistics",
-        "S38PacketPlayerListItem",
-        "S39PacketPlayerAbilities",
-        "S3APacketTabComplete",
-        "S3BPacketScoreboardObjective",
-        "S3CPacketUpdateScore",
-        "S3DPacketDisplayScoreboard",
-        "S3EPacketTeams",
-        "S3FPacketCustomPayload",
-        "S40PacketDisconnect",
-        "S41PacketServerDifficulty",
-        "S42PacketCombatEvent",
-        "S43PacketCamera",
-        "S44PacketWorldBorder",
-        "S45PacketTitle",
-        "S46PacketSetCompressionLevel",
-        "S47PacketPlayerListHeaderFooter",
-        "S48PacketResourcePackSend",
-        "S49PacketUpdateEntityNBT"
+        "S00 Keep Alive",
+        "S01 Join Game",
+        "S02 Chat Message",
+        "S03 Time Update",
+        "S04 Entity Equipment",
+        "S05 Spawn Position",
+        "S06 Update Health",
+        "S07 Respawn",
+        "S08 Player Position And Look",
+        "S09 Held Item Change",
+        "S0A Use Bed",
+        "S0B Animation",
+        "S0C Spawn Player",
+        "S0D Collect Item",
+        "S0E Spawn Object",
+        "S0F Spawn Mob",
+        "S10 Spawn Painting",
+        "S11 Spawn Experience Orb",
+        "S12 Entity Velocity",
+        "S13 Destroy Entities",
+        "S14 Entity",
+        "S15 Entity Relative Move",
+        "S16 Entity Look",
+        "S17 Entity Look And Relative Move",
+        "S18 Entity Teleport",
+        "S19 Entity Head Look",
+        "S1A Entity Status",
+        "S1B Attach Entity",
+        "S1C Entity Metadata",
+        "S1D Entity Effect",
+        "S1E Remove Entity Effect",
+        "S1F Set Experience",
+        "S20 Entity Properties",
+        "S21 Chunk Data",
+        "S22 Multi Block Change",
+        "S23 Block Change",
+        "S24 Block Action",
+        "S25 Block Break Animation",
+        "S26 Map Chunk Bulk",
+        "S27 Explosion",
+        "S28 Effect",
+        "S29 Sound Effect",
+        "S2A Particle",
+        "S2B Change Game State",
+        "S2C Spawn Global Entity",
+        "S2D Open Window",
+        "S2E Close Window",
+        "S2F Set Slot",
+        "S30 Window Items",
+        "S31 Window Property",
+        "S32 Confirm Transaction",
+        "S33 Update Sign",
+        "S34 Map",
+        "S35 Update Block Entity",
+        "S36 Open Sign Editor",
+        "S37 Statistics",
+        "S38 Player List Item",
+        "S39 Player Abilities",
+        "S3A Tab-Complete",
+        "S3B Scoreboard Objective",
+        "S3C Update Score",
+        "S3D Display Scoreboard",
+        "S3E Teams",
+        "S3F Plugin Message",
+        "S40 Disconnect",
+        "S41 Server Difficulty",
+        "S42 Combat Event",
+        "S43 Camera",
+        "S44 World Border",
+        "S45 Title",
+        "S46 Set Compression",
+        "S47 Player List Header And Footer",
+        "S48 Resource Pack Send",
+        "S49 Update Entity NBT"
     };
     
     public static final String packetTip[] =
@@ -270,14 +270,14 @@ public class ServerPacketData
         return "[Yaw:" + yaw + ",Pitch:" + pitch + "]";
     }
     
-    // Keep Alive 1F
+    // Keep Alive
     public static void displayS00(int keepAlive)
     {
         String info = "Keep Alive: " + keepAlive;
         playerChatPacketInfo(0x00, "", info);
     }
     
-    // Join Game 23
+    // Join Game
     public static void displayS01(int entityID, int gameMode, int dimension, int difficulty, int maxPlayers, String levelType, boolean reducedDebugInfo)
     {
         String info =   
@@ -291,25 +291,33 @@ public class ServerPacketData
         playerChatPacketInfo(0x01, "", info);
     }
     
-    // Chat Message 0F
+    // Chat Message
     public static void displayS02(IChatComponent chat, byte position)
     {
+        String posstr;
+        switch(position) {
+        case 0: posstr = "chat"; break;
+        case 1: posstr = "system message"; break;
+        case 2: posstr = "above hotbar"; break;
+        default: posstr = "unknown";
+        }
+        
         String info =   
                 "Text: " + chat.getUnformattedText() + "\n" +
-                "Position: " + position;
+                "Position: " + position + " §7[" + posstr + "]";
         playerChatPacketInfo(0x02, "", info);
     }
     
-    // Time Update 44
+    // Time Update
     public static void displayS03(long worldAge, long timeOfDay)
     {
         String info = 
                 "World Age: " + worldAge + "\n" + 
                 "Time of Day: " + timeOfDay;
-        playerChatPacketInfo(0x03, "(" + worldAge + ", " + timeOfDay + ")", info);
+        playerChatPacketInfo(0x03, "" + worldAge, info);
     }
     
-    // Entity Equipment 3C
+    // Entity Equipment
     public static void displayS04(int entityID, int slot, ItemStack item)
     {
         String itemName = (item == null) ? "(null)" : item.getDisplayName();
@@ -320,7 +328,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x04, "\"" + itemName + "\" for " + eidInfo(entityID), info);
     }
     
-    // Spawn Position 43
+    // Spawn Position
     public static void displayS05(BlockPos position)
     {
         String posStr = pos2str(position);
@@ -328,7 +336,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x05, posStr, info);
     }
     
-    // Update Health 3E
+    // Update Health
     public static void displayS06(float health, int food, float saturation)
     {
         String info = 
@@ -338,7 +346,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x06, "", info);
     }
     
-    // Respawn 33
+    // Respawn
     public static void displayS07(int dimension, int difficulty, int gameMode, String levelType)
     {
         String info = 
@@ -349,27 +357,26 @@ public class ServerPacketData
         playerChatPacketInfo(0x07, "", info);
     }
     
-    // Player Position And Look 2E
-    public static void displayS08(double x, double y, double z, float yaw, float pitch, String flags, Integer teleportID)
+    // Player Position And Look
+    public static void displayS08(double x, double y, double z, float yaw, float pitch, String flags)
     {
         // about flags:
         // <Dinnerbone> It's a bitfield, X/Y/Z/Y_ROT/X_ROT. If X is set, the x value is relative and not absolute. 
         String info = 
                 "Position: " + pos2str(x,y,z) + "\n" + 
                 "Rotation: " + rot2str(yaw,pitch) + "\n" +
-                "Flags: " + flags + "\n" +
-                "TeleportID: " + teleportID;
+                "Flags: " + flags;
         playerChatPacketInfo(0x08, "", info);
     }
     
-    // Held Item Change 37
+    // Held Item Change
     public static void displayS09(int slot)
     {
         String info = "Slot: " + slot;
         playerChatPacketInfo(0x09, "", info);
     }
     
-    // Use Bed 2F
+    // Use Bed
     public static void displayS0A(EntityPlayer player, BlockPos location)
     {
         String info = 
@@ -378,19 +385,19 @@ public class ServerPacketData
         playerChatPacketInfo(0x0A, "", info);
     }
     
-    // Animation 06
+    // Animation
     public static void displayS0B(int entityID, int animation)
     {
         // animation:
         // 0 = Swing arm, 1 = Take damage, 2 = Leave bed, 3 = Eat food, 4 = Critical effect, 5 = Magic critical effect
         String anim;
         switch(animation){
-        case 0: anim = "Swing Arm"; break;
-        case 1: anim = "Take Damage"; break;
-        case 2: anim = "Leave Bed"; break;
-        case 3: anim = "Eat Food"; break;
-        case 4: anim = "Critical Effect"; break;
-        case 5: anim = "Magic Critical Effect"; break;
+        case 0: anim = "Swing arm"; break;
+        case 1: anim = "Take damage"; break;
+        case 2: anim = "Leave bed"; break;
+        case 3: anim = "Eat food"; break;
+        case 4: anim = "Critical effect"; break;
+        case 5: anim = "Magic critical effect"; break;
         default: anim = "Unknown"; break;
         }
         
@@ -400,20 +407,20 @@ public class ServerPacketData
         playerChatPacketInfo(0x0B, eidInfo(entityID), info);
     }
     
-    // Spawn Player 05
-    public static void displayS0C(int entityID, UUID uuid, double x, double y, double z, float yaw, float pitch, int meta)
+    // Spawn Player
+    public static void displayS0C(int entityID, UUID uuid, double x, double y, double z, float yaw, float pitch, int currentItem, List meta)
     {
-        // meta = held item id
         String info = 
                 eidTag(entityID) + "\n" +
                 "UUID: " + ((uuid==null)?"(null)":uuid.toString()) + "\n" +
                 "Position" + pos2str(x,y,z) + "\n" + 
                 "Rotation: " + rot2str(yaw,pitch) + "\n" + 
-                "Held ItemID: " + meta;
+                "Held ItemID: " + currentItem + "\n" + 
+                "<Metadata>";
         playerChatPacketInfo(0x0C, eidInfo(entityID), info);
     }
     
-    // Collect Item 49
+    // Collect Item
     public static void displayS0D(int collectedEntityID, int collectorEntityID)
     {
         String info = 
@@ -422,12 +429,11 @@ public class ServerPacketData
         playerChatPacketInfo(0x0D, "", info);
     }
     
-    // Spawn Object 00
-    public static void displayS0E(int entityID, UUID uuid, int type, double x, double y, double z, float yaw, float pitch, int data, double velX, double velY, double velZ)
+    // Spawn Object
+    public static void displayS0E(int entityID, int type, double x, double y, double z, float yaw, float pitch, int data, double velX, double velY, double velZ)
     {
         String info =   
                 eidTag(entityID) + "\n" + 
-                //"UUID: " + ((uuid==null)?"(null)":uuid.toString()) + "\n" +
                 "Type: " + type + "\n" +
                 "Position" + pos2str(x,y,z) + "\n" + 
                 "Rotation: " + rot2str(yaw,pitch) + "\n" + 
@@ -436,12 +442,11 @@ public class ServerPacketData
         playerChatPacketInfo(0x0E, eidInfo(entityID), info);
     }
     
-    // Spawn Mob 03
-    public static void displayS0F(int entityID, UUID uuid, int type, double x, double y, double z, float yaw, float pitch, float headPitch, double velX, double velY, double velZ, List meta)
+    // Spawn Mob
+    public static void displayS0F(int entityID, int type, double x, double y, double z, float yaw, float pitch, float headPitch, double velX, double velY, double velZ, List meta)
     {
         String info =   
                 eidTag(entityID) + "\n" + 
-                //"UUID: " + ((uuid==null)?"(null)":uuid.toString()) + "\n" +
                 "Type: " + type + "\n" +
                 "Position" + pos2str(x,y,z) + "\n" + 
                 "Rotation: " + rot2str(yaw,pitch) + "\n" + 
@@ -451,19 +456,18 @@ public class ServerPacketData
         playerChatPacketInfo(0x0F, eidInfo(entityID) + " @" + pos2str(x,y,z), info);
     }
     
-    // Spawn Painting 04
-    public static void displayS10(int entityID, UUID uuid, String title, BlockPos location, String facing)
+    // Spawn Painting
+    public static void displayS10(int entityID, String title, BlockPos location, String facing)
     {
         String info = 
                 eidTag(entityID) + "\n" +
-                //"UUID: " + ((uuid==null)?"(null)":uuid.toString()) + "\n" +
                 "Title: " + title + "\n" +
                 "Position: " + pos2str(location) + "\n" +
                 "Facing: " + facing;
         playerChatPacketInfo(0x10, "", info);
     }
 
-    // Spawn Experience Orb 01
+    // Spawn Experience Orb
     public static void displayS11(int entityID, double x, double y, double z, int count)
     {
         String info = 
@@ -473,7 +477,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x11, "Count: " + count, info);
     }
     
-    // Entity Velocity 3B
+    // Entity Velocity
     public static void displayS12(int entityID, double velX, double velY, double velZ)
     {
         String info = 
@@ -482,28 +486,28 @@ public class ServerPacketData
         playerChatPacketInfo(0x12, eidInfo(entityID), info);
     }
     
-    // Destroy Entities 30
+    // Destroy Entities
     // Called before processing to determine the entities before they are destroyed
     public static void displayS13(int count, int entityIDs[])
     {
-        final int displayMax = 6;
+        final int displayMax = 8;
         String info = "Count: " + count;
         for(int i = 0; i < count && i < displayMax; i++)
         {
             info += "\nEntity[" + i + "]: " + eid2str(entityIDs[i]) + " (" + entityIDs[i] + ")";
         }
-        if(count >= displayMax) info += "\n...";
+        if(count > displayMax) info += " ...";
         playerChatPacketInfo(0x13, "", info);
     }
     
-    // Entity 28
+    // Entity
     public static void displayS14(int entityID)
     {
         String info = eidTag(entityID);
         playerChatPacketInfo(0x14, eidInfo(entityID), info);
     }
     
-    // Entity Relative Move 25
+    // Entity Relative Move
     public static void displayS15(int entityID, double x, double y, double z, boolean onGround)
     {
         String info = 
@@ -513,7 +517,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x15, eidInfo(entityID), info);
     }
     
-    // Entity Look 26
+    // Entity Look
     public static void displayS16(int entityID, float yaw, float pitch, boolean onGround)
     {
         String info = 
@@ -523,7 +527,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x16, eidInfo(entityID), info);
     }
     
-    // Entity Look And Relative Move 27
+    // Entity Look And Relative Move
     public static void displayS17(int entityID, double x, double y, double z, float yaw, float pitch, boolean onGround)
     {
         String info = 
@@ -534,7 +538,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x17, eidInfo(entityID), info);
     }
     
-    // Entity Teleport 4A
+    // Entity Teleport
     public static void displayS18(int entityID, double x, double y, double z, float yaw, float pitch, boolean onGround)
     {
         String info = 
@@ -545,7 +549,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x18, eidInfo(entityID), info);
     }
     
-    // Entity Head Look 34
+    // Entity Head Look
     public static void displayS19(int entityID, float yaw)
     {
         String info = 
@@ -554,7 +558,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x19, eidInfo(entityID), info);
     }
     
-    // Entity Status 1B
+    // Entity Status
     public static void displayS1A(int entityID, int statusID)
     {
         String info = 
@@ -563,16 +567,17 @@ public class ServerPacketData
         playerChatPacketInfo(0x1A, eidInfo(entityID), info);
     }
     
-    // Attach Entity 3A
-    public static void displayS1B(int attachedEntityID, int holdingEntityID)
+    // Attach Entity
+    public static void displayS1B(int attachedEntityID, int holdingEntityID, int leash)
     {
         String info = 
                 "Attached " + eidTag(attachedEntityID) + "\n" +
-                "Holding " + eidTag(holdingEntityID);
+                "Vehicle " + eidTag(holdingEntityID) + "\n" + 
+                "Leash: " + leash;
         playerChatPacketInfo(0x1B, "", info);
     }
     
-    // Entity Metadata 39
+    // Entity Metadata
     public static void displayS1C(int entityID, List meta)
     {
         String info = 
@@ -581,7 +586,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x1C, eidInfo(entityID), info);
     }
     
-    // Entity Effect 4C
+    // Entity Effect
     public static void displayS1D(int entityID, int effectID, int duration, int amplifier, boolean particles)
     {
         String info = 
@@ -593,7 +598,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x1D, eidInfo(entityID), info);
     }
     
-    // Remove Entity Effect 31
+    // Remove Entity Effect
     public static void displayS1E(int entityID, int effectID)
     {
         String info = 
@@ -602,7 +607,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x1E, eidInfo(entityID), info);
     }
     
-    // Set Experience 3D
+    // Set Experience
     public static void displayS1F(float expBar, int level, int total)
     {
         String info = 
@@ -612,7 +617,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x1F, "", info);
     }
     
-    // Entity Properties 4B
+    // Entity Properties
     public static void displayS20(int entityID, List attributes)
     {
         String info = 
@@ -622,7 +627,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x20, eidInfo(entityID), info);
     }
     
-    // Chunk Data 20
+    // Chunk Data
     // Updated an existing chunk
     public static void displayS21(int chunkX, int chunkZ, boolean groundUpCont, int primBitMask, int size, byte data[], byte biomes[])
     {
@@ -637,7 +642,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x21, pos2str(chunkX,chunkZ), info);
     }
     
-    // Multi Block Change 10
+    // Multi Block Change
     public static void displayS22(S22PacketMultiBlockChange.BlockUpdateData blockUpdates[])
     {
         String info = "";
@@ -655,14 +660,14 @@ public class ServerPacketData
         playerChatPacketInfo(0x22, "" + blockUpdates.length + " Block Updates", info);
     }
     
-    // Block Change 0B
+    // Block Change
     public static void displayS23(BlockPos pos, IBlockState ibs)
     {
         String info = pos2str(pos) + ":§c" + (ibs + "").substring(10).replace("[", "§7[");
         playerChatPacketInfo(0x23, pos2str(pos), info);
     }
     
-    // Block Action 0A
+    // Block Action
     public static void displayS24(BlockPos pos, Block block, int event, int eventParam)
     {
         String blockName = I18n.format(block.getUnlocalizedName() + ".name");
@@ -721,7 +726,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x24, quickInfo, info);
     }
     
-    // Block Break Animation 08
+    // Block Break Animation
     public static void displayS25(int entityID, BlockPos pos, int destroyStage)
     {
         String info = 
@@ -731,7 +736,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x25, eidInfo(entityID), info);
     }
     
-    // Map 24
+    // Map Chunk Bulk
     // Initial chunk loading
     public static void displayS26(int chunkX[], int chunkZ[], int bitMasks[])
     {
@@ -754,7 +759,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x26, quickInfo, info);
     }
     
-    // Explosion 1C
+    // Explosion
     public static void displayS27(double x, double y, double z, float radius, List affectedBlockOffsets, float velX, float velY, float velZ)
     {
         String info = 
@@ -776,7 +781,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x27, "@" + pos2str(Math.floor(x),Math.floor(y),Math.floor(z)), info);
     }
     
-    // Effect 21
+    // Effect
     public static void displayS28(int effectID, BlockPos pos, int data, boolean noRelativeVol)
     {
         String info = 
@@ -787,7 +792,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x28, "", info);
     }
     
-    // Sound Effect 47
+    // Sound Effect
     public static void displayS29(double x, double y, double z, String soundName, float volume, float pitch)
     {
         String info = 
@@ -798,7 +803,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x29, soundName, info);
     }
     
-    // Particle 22
+    // Particle
     public static void displayS2A(String particleID, int count, boolean isLongDist, double x, double y, double z, float Dx, float Dy, float Dz, float offsetScale)
     {
         String info = 
@@ -811,7 +816,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x2A, particleID + " ×" + count, info);
     }
     
-    // Change Game State 1E
+    // Change Game State
     public static void displayS2B(int reason, float data)
     {
         String info = "";
@@ -836,7 +841,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x2B, str, info);
     }
     
-    // Spawn Global Entity 02
+    // Spawn Global Entity
     public static void displayS2C(int entityID, int isLightningBlot, double x, double y, double z)
     {
         String info = 
@@ -846,7 +851,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x2C, eid2str(entityID), info);
     }
     
-    // Open Window 13
+    // Open Window
     public static void displayS2D(int windowID, String type, IChatComponent title, int slotNum, int entityID)
     {
         String info = 
@@ -858,14 +863,14 @@ public class ServerPacketData
         playerChatPacketInfo(0x2D, type, info);
     }
     
-    // Close Window 12
+    // Close Window
     public static void displayS2E()
     {
         String info = "§7[Closes Current Window]";
         playerChatPacketInfo(0x2E, "", info);
     }
     
-    // Set Slot 16
+    // Set Slot
     public static void displayS2F(int windowID, int slot, ItemStack stack)
     {
         String stackStr;
@@ -879,11 +884,11 @@ public class ServerPacketData
         playerChatPacketInfo(0x2F, "" + slot + " → [" + stackStr + "]", info);
     }
     
-    // Window Items 14
-    public static void displayS30(int count, ItemStack slots[])
+    // Window Items
+    public static void displayS30(int windowID, ItemStack slots[])
     {
         String info = 
-                "Count: " + count;
+                "WindowID: " + windowID;
         
         final int dispMax = 9;
         int dispCnt = 0;
@@ -891,16 +896,16 @@ public class ServerPacketData
         {
             if(slots[i] == null) continue;
             
-            String stackName = slots[i] == null ? "(null)" : slots[i].getDisplayName() + " §8×" + slots[i].stackSize;
-            info += "\nSlot: " + i + " §7[" + stackName + "§7]";
+            String stackName = slots[i].getDisplayName() + " §8×" + slots[i].stackSize;
+            info += "\nSlot[" + i + "]: " + i + " §7[" + stackName + "§7]";
             dispCnt++;
         }
-        if(dispCnt >= dispMax) info += "\n...";
+        if(dispCnt > dispMax) info += " ...";
         
         playerChatPacketInfo(0x30, "", info);
     }
     
-    // Window Property 15
+    // Window Property
     public static void displayS31(int windowID, int property, int value)
     {
         String info = 
@@ -910,7 +915,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x31, "", info);
     }
     
-    // Confirm Transaction (clientbound) 11
+    // Confirm Transaction
     public static void displayS32(int windowID, int actionNumber, boolean accepted)
     {
         String info = 
@@ -920,7 +925,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x32, "", info);
     }
     
-    // Update Sign (clientbound) 46
+    // Update Sign
     public static void displayS33(BlockPos pos, IChatComponent lines[])
     {
         String info = 
@@ -928,13 +933,13 @@ public class ServerPacketData
         
         for(int i = 0; i < lines.length; i++)
         {
-            info += "\nL" + i + ": " + (lines[i] == null ? "(null)" : lines[i].getUnformattedText());
+            info += "\nL[" + i + "]: " + (lines[i] == null ? "(null)" : lines[i].getUnformattedText());
         }
         
         playerChatPacketInfo(0x33, "", info);
     }
     
-    // Map 24
+    // Map
     public static void displayS34(int mapID)
     {
         String info = 
@@ -943,7 +948,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x34, "", info);
     }
     
-    // Update Block Entity 09
+    // Update Block Entity
     public static void displayS35(BlockPos pos, int type, NBTTagCompound nbt)
     {
         String typestr;
@@ -965,14 +970,14 @@ public class ServerPacketData
         playerChatPacketInfo(0x35, typestr, info);
     }
     
-    // Open Sign Editor 2A
+    // Open Sign Editor
     public static void displayS36(BlockPos pos)
     {
         String info = "Position: " + pos2str(pos);
         playerChatPacketInfo(0x36, "", info);
     }
     
-    // Statistics 07
+    // Statistics
     public static void displayS37()
     {
         String info = 
@@ -980,7 +985,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x37, "", info);
     }
     
-    // Player List Item 2D
+    // Player List Item
     public static void displayS38(String uuids[], String[] action)
     {
         String info = "";
@@ -993,7 +998,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x38, "", info);
     }
     
-    // Player Abilities (clientbound) 2B
+    // Player Abilities
     public static void displayS39(boolean isFlying, boolean isCreativeMode, boolean isInvulnerable, boolean isAllowFlying, float flySpeed, float fieldOfView)
     {
         String info = 
@@ -1006,7 +1011,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x39, "", info);
     }
     
-    // Tab-Complete (clientbound) 0E
+    // Tab-Complete
     public static void displayS3A(String strs[])
     {
         String info = "";
@@ -1014,7 +1019,7 @@ public class ServerPacketData
         for(int i = 0; i < strs.length; i++)
         {
             if(i >= dispMax) {
-                info += "...";
+                info += " ...";
                 break;
             }
             info += strs[i];
@@ -1024,7 +1029,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x3A, "", info);
     }
     
-    //  Scoreboard Objective 3F
+    //  Scoreboard Objective
     public static void displayS3B(String name, String type, int mode, String renderType)
     {
         String info = 
@@ -1035,7 +1040,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x3B, "", info);
     }
     
-    // Update Score 42
+    // Update Score
     public static void displayS3C(String scoreName, String objectiveName, String action, int value)
     {
         String info = 
@@ -1046,7 +1051,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x3C, "", info);
     }
     
-    // Display Scoreboard 38
+    // Display Scoreboard
     public static void displayS3D(int pos, String scoreName)
     {
         String posstr = pos == 0 ? "List" : pos == 1 ? "Sidebar" : pos == 2 ? "Below Name" : "Unknown";
@@ -1057,7 +1062,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x3D, "", info);
     }
     
-    // Teams 41
+    // Teams
     public static void displayS3E(int mode, String teamName, 
             String teamDispName, String prefix, String suffix, 
             int chatFormatting, int friendlyFire, String nameTagVisibility, 
@@ -1074,8 +1079,8 @@ public class ServerPacketData
         }
         
         String info = 
-                "Mode: " + mode + " §7[" + modeStr + "]\n" +
                 "Team Name: " + teamName + "\n" +
+                "Mode: " + mode + " §7[" + modeStr + "]\n" +
                 "Team Display Name: " + teamDispName + "\n" +
                 "Prefix: " + prefix + "\n" +
                 "Suffix: " + suffix + "\n" +
@@ -1106,7 +1111,7 @@ public class ServerPacketData
         playerChatPacketInfo(0x3E, "", info);
     }
     
-    // Plugin Message (clientbound) 18
+    // Plugin Message
     public static void displayS3F(String channelName)
     {
         String info = 
@@ -1115,14 +1120,14 @@ public class ServerPacketData
         playerChatPacketInfo(0x3F, channelName, info);
     }
     
-    // Disconnect (play) 1A
+    // Disconnect
     public static void displayS40(IChatComponent reason)
     {
         String info = "Reason: " + reason.getUnformattedText();
         playerChatPacketInfo(0x40, "", info);
     }
     
-    // Server Difficulty 0D
+    // Server Difficulty
     public static void displayS41(int difficulty, boolean isLocked)
     {
         String info = 
@@ -1131,19 +1136,19 @@ public class ServerPacketData
         playerChatPacketInfo(0x41, "", info);
     }
     
-    // Combat Event 2C
-    public static void displayS42(String event, int entityID, int playerID, String message, int duration)
+    // Combat Event
+    public static void displayS42(String event, int duration, int entityID, int playerID, String message)
     {   
         String info = 
                 "Event: " + event + "\n" + 
+                "Duration: " + duration + "\n" + 
                 "EntityID: " + entityID + " §7→" + eid2str(entityID) + "\n" + 
                 "PlayerID: " + playerID + " §7→" + eid2str(playerID) + "\n" +
-                "Message: " + message + "\n" + 
-                "Duration: " + duration;
+                "Message: " + message;
         playerChatPacketInfo(0x42, "", info);
     }
     
-    // Camera 36
+    // Camera
     public static void displayS43(int camEntityID)
     {
         String info = "Camera " + eidTag(camEntityID);
@@ -1170,14 +1175,14 @@ public class ServerPacketData
         playerChatPacketInfo(0x45, "", info);
     }
     
-    // Set Compression Level ?
+    // Set Compression Level 
     public static void displayS46(int compressionLevel)
     {
         String info = "Compression Level: " + compressionLevel;
         playerChatPacketInfo(0x46, "", info);
     }
     
-    // Player List Header And Footer 48
+    // Player List Header And Footer
     public static void displayS47(IChatComponent header, IChatComponent footer)
     {
         String info = 

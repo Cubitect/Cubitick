@@ -224,7 +224,6 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     public Timer timerWorld = new Timer(Cubitick.tickrateWorld);
     public Timer timer = new Timer(Cubitick.tickrate);
     public long tickcounter = 0;
-    // PacketAnalysis
     public boolean scheduledReload = false;
 
     /** Instance of PlayerUsageSnooper. */
@@ -1118,6 +1117,11 @@ public class Minecraft implements IThreadListener, IPlayerUsage
             Cubitick.setTickWorld(Cubitick.tickrate);
             Cubitick.synctick = false;
         }
+        else if(this.theWorld != null)
+        {
+            // Cubitick : World init
+            if(!Cubitick.initialised && tickcounter > 100) Cubitick.instance.checkVersion();
+        }
 
         this.mcProfiler.endSection();
         long var7 = System.nanoTime();
@@ -1137,6 +1141,13 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         {
             int worldTicks = this.timerWorld.elapsedTicks;
             int playerTicks = this.timer.elapsedTicks;
+            
+            while(worldTicks > 0 && playerTicks > 0)
+            {
+                if(!this.isGamePaused) this.tickcounter++;
+                this.runTick();
+                worldTicks--; playerTicks--;
+            }
             
             while(playerTicks > 0)
             {
@@ -2236,6 +2247,12 @@ public class Minecraft implements IThreadListener, IPlayerUsage
             this.renderGlobal.loadRenderers();
             scheduledReload = false;
         }
+        
+        if (!this.isGamePaused)
+        {
+            this.mcMusicTicker.update();
+            this.mcSoundHandler.update();
+        }
     }
     
     public void runTickWorld()
@@ -2280,7 +2297,12 @@ public class Minecraft implements IThreadListener, IPlayerUsage
                 }
                 
                 // Cubitick: custom version of the World.updateEntities() method which skips the update for a specified entity 
-                this.theWorld.updateEntities(this.thePlayer);
+                // this.theWorld.updateEntities(this.thePlayer);
+                
+                // Cubitick 1.5.1+: temporarily remove player from entity list instead of modding World.java
+                this.theWorld.loadedEntityList.remove(this.thePlayer);
+                this.theWorld.updateEntities();
+                this.theWorld.loadedEntityList.add(this.thePlayer);
             }
         }
 
