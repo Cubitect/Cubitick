@@ -1,18 +1,23 @@
+package cubimod;
+
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.Scanner;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.Timer;
+import net.minecraft.util.text.TextComponentString;
 
 public class Cubitick 
 {
-    public static Cubitick instance;
+    public static Cubitick instance = new Cubitick();
     public static boolean initialised = false; 
     
     private String author = "Cubitect";
     private String name = "Cubitick";
-    private String versionName = "[1.9.2]v1.5.1";
+    private String versionName = "[1.10]v1.5.2";
     private String versionType = "main";
-    private String mcVersion   = "1.9";
+    private String mcVersion   = "1.10";
     private String mcType      = "release";
     
     public static final float tickrate = 20F;
@@ -22,10 +27,6 @@ public class Cubitick
     
     public Cubitick()
     {
-        System.out.println("[" + name + "] Initializing...");
-        
-        instance = this;
-        ServerPacketData.init();
         initialised = false;
     }
     
@@ -80,18 +81,18 @@ public class Cubitick
     
     private static void setTimerWorld(float rate)
     {
-        bcc mc = bcc.z();
-        float elapsedPartialTicks = mc.timerWorld.e;
-        int elapsedTicks = mc.timerWorld.b;
-        float renderPartialTicks = mc.timerWorld.c;
+        Minecraft mc = Minecraft.getMinecraft();
+        float elapsedPartialTicks = mc.timerWorld.elapsedPartialTicks;
+        int elapsedTicks = mc.timerWorld.elapsedTicks;
+        float renderPartialTicks = mc.timerWorld.renderPartialTicks;
         
-        mc.timerWorld = new bci(rate);
+        mc.timerWorld = new Timer(rate);
         
-        mc.timerWorld.e = elapsedPartialTicks;
-        mc.timerWorld.b = elapsedTicks;
-        mc.timerWorld.c = renderPartialTicks;
+        mc.timerWorld.elapsedPartialTicks = elapsedPartialTicks;
+        mc.timerWorld.elapsedTicks = elapsedTicks;
+        mc.timerWorld.renderPartialTicks = renderPartialTicks;
         
-        mc.timer = new bci(tickrate);
+        mc.timer = new Timer(tickrate);
     }
     
     public static float getTickms()
@@ -102,7 +103,7 @@ public class Cubitick
     
     public static void playerChat(String str)
     {
-        if(bcc.z().h == null) return;
-        bcc.z().h.b(new fa(str));
+        if(Minecraft.getMinecraft().thePlayer == null) return;
+        Minecraft.getMinecraft().thePlayer.addChatMessage(new TextComponentString(str));
     }
 }

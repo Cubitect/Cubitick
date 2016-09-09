@@ -14,7 +14,7 @@ Don't enable this at a world-tickrate of zero, or your game will freeze!
 When no arguments are specified, `/rerender` will do the same as pressing F3+A. However, if a region of blocks is specified, then that region is marked in the code to be rendered again (without reloading). This command is still experimental and might change syntax in the future.
 
 ### Packet Analysis
-Cubitick 1.4.X+ comes bundled with a packet analysis tool which lets you view the content of some packets that are sent between the minecraft client and server.
+Cubitick 1.4 to 1.5.1 comes bundled with a packet analysis tool which lets you view the content of some packets that are sent between the minecraft client and server.
 
 ## Source
 The source code [here](https://github.com/Cubitect/Cubitick/tree/master) contains the modified classes in the decompiled minecraft code from [Mod Coder Pack](http://www.modcoderpack.com). The unmodified classes are not included.
